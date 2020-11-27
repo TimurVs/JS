@@ -1,43 +1,9 @@
-/*var tempC = 21;
-var tempF = 9 / 5 * tempC + 32;
 
-var admin, name;
+//*************Lesson 2*************//
 
-name = "Василий";
-admin = name;
+//Task 1
 
-alert(tempF);
-alert(admin);
-
-//1000+108 будет равно 1000108
-
-//async и defer - посмотрел. порядок загрузки скриптов. понятно.
-
-
-// если я правильно понял задание, то:
-
-var a = 10, b = 20;
-a = a + 10;
-b = b - 10;
-
-alert(a);
-alert(b); */
-
-/*function fibonacci(n, prev1, prev2) {     // задаем исходное число и два предыдущих
-    var current = prev1 + prev2;          // создаем переменную текущего числа как сумму двух предыдущих
-    var fibonacci_string = current + " "; // создаем переменную, которая равна текущему числу
-    if (n > 1)                            // ставим условие если первое число больше единицы
-        fibonacci_string += fibonacci(n - 1, current, prev1);
-    return fibonacci_string;
-}
-alert(fibonacci(15, 1, 0));*/
-
-
-//ДЗ 2
-
-// Task 1
-
-/*var a = 1, b = 1, c, d;
+var a = 1, b = 1, c, d;
 c = ++a; alert(c);           // 2 - потому что мы повышаем а на 1 класс, на единицу.
 d = b++; alert(d);           // 1  - потому что мы сначала выводим b, а уже потом добавляем ему единицу.
 c = (2 + ++a); alert(c);      // 5 - тут мы сначала вывели двойку, затем будем прибавлять а, который мы до этого повысили на 1 и теперь еще на 1.
@@ -46,22 +12,18 @@ alert(a);                    // 3 - к a мы прибавили два плюс
 alert(b);                    // 3 - исходя из последней строки 2 + b - выводится три. При этом к b прибавляется 1, но нигде пока что не выводится.
 
 
-// Task 2
+//Task 2
 
-/*var a = 2;
+var a = 2;
 var x = 1 + (a *= 2);
 alert(x);
 
-// x будет равен 5
+//x будет равен 5
 
 
-/*Объявить две целочисленные переменные — a и b и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу:
-если a и b положительные, вывести их разность;
-если а и b отрицательные, вывести их произведение;
-если а и b разных знаков, вывести их сумму;
-Ноль можно считать положительным числом.*/
+//Task 3
 
-/*var a = 5;
+var a = 5;
 var b = -10;
 
 if (a > 0 && b > 0) {
@@ -76,20 +38,144 @@ else {
     alert(a + b);
 }
 
-*/
+//Task 4
+
+var a = parseInt(prompt("Введите чило от 0 до 15"));
+
+switch (a) {
+    case 0:
+        document.write("0 ");
+
+    case 1:
+        document.write("1 ");
+
+    case 2:
+        document.write("2 ");
+
+    case 3:
+        document.write("3 ");
+
+    case 4:
+        document.write("4 ");
+
+    case 5:
+        document.write("5 ");
+
+    case 6:
+        document.write("6 ");
+
+    case 7:
+        document.write("7 ");
+
+    case 8:
+        document.write("8 ");
+
+    case 9:
+        document.write("9 ");
+
+    case 10:
+        document.write("10 ");
+
+    case 11:
+        document.write("11 ");
+
+    case 12:
+        document.write("12 ");
+
+    case 13:
+        document.write("13 ");
+
+    case 14:
+        document.write("14 ");
+
+    case 15:
+        document.write("15 ");
+        break;
+
+    default:
+        document.write("Введено неверное число.");
+        break;
+
+
+}
+
+function randomNumber(x) {
+    document.write(x);
+    if (x == 15) {
+        return;
+    }
+    randomNumber(++x)
+}
+
+randomNumber(parseInt(Math.random() * 15));
+
+
+//Task 5+6
+
+
+function summ(x, y) {
+    return x + y;
+}
+
+function diff(x, y) {
+    return x - y;
+}
+
+function mult(x, y) {
+    return x * y;
+}
+
+function div(x, y) {
+    if (y != 0)
+        return x / y;
+    else
+        alert("Нельзя делить на ноль.")
+}
 
 
 
-/*Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15.*/
+var a = parseFloat(prompt("Введите число а"));
+var b = parseFloat(prompt("Введите число b"));
+var operation = prompt("Введите операцию summ, diff, mult или div");
+
+alert("Результат: " + mathOperation(a, b, operation));
+
+function mathOperation(x, y, operation) {
+    switch (operation) {
+        case "summ":
+            return summ(x, y);
+        case "diff":
+            return diff(x, y);
+        case "mult":
+            return mult(x, y);
+        case "div":
+            return div(x, y);
+        default:
+            return NaN;
+
+    }
+}
 
 
+//Сравнить null и 0. Объяснить результат.
+//null это ничто, а ноль - это значение. сравнение некорректно.
+
+//С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val — заданное число, pow –— степень.
 
 
+function mathPow(x, y) {
 
+    if (y != 1) {
+        return Math.pow(x, y);
+    }
 
+    else {
+        return (1);
+    }
 
+}
 
+var base = parseFloat(prompt("Введите число, которое возвести в степень"));
+var exponent = parseFloat(prompt("Введите степень, в которую возмводим"));
 
-
-
-
+alert("Результат возведения в степень: " + mathPow(base, exponent));
