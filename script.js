@@ -1,8 +1,106 @@
 
-//*************Lesson 2*************//
+//*************Lesson 3*************//
 
 //Task 1
 
+
+function checkPrime(n) {
+    var i = 2;
+
+    while (i < n) {
+        if (n % i == 0) {
+            return false;
+        }
+        i++;
+    }
+
+    return true;
+}
+
+var x = 2;
+
+while (x <= 100) {
+    if (checkPrime(x)) {
+        document.write(x + ", ");
+    }
+    x++;
+}
+
+
+
+//Task 2 + 3
+
+var cart = [
+
+    {
+        title: "PS1",
+        price: 100,
+        count: 2,
+
+
+    },
+
+    {
+        title: "PS2",
+        price: 200,
+        count: 1,
+
+    },
+
+    {
+        title: "PS3",
+        price: 300,
+        count: 5,
+
+    },
+
+    {
+        title: "PS4",
+        price: 600,
+        count: 1,
+
+    }
+
+
+]
+
+
+
+for (var item of cart) {
+    document.write("<p>" + "Товар " + item.title + "</p >" + "<p>" + " Стоимость " + "</p>" + item.price + "<p>" + " Количество " + item.count + "</p>");
+    document.write("<p>" + "Общая стоимость наименований: " + item.price * item.count + "</p>");
+
+}
+
+function totalCart(cart) {
+
+    var totalCart = 0;
+    for (var item of cart) {
+        totalCart += (item.price * item.count);
+
+
+    }
+    return totalCart;
+
+}
+
+document.write("ИТОГО: " + totalCart(cart));
+
+
+//Task 4 
+
+
+
+
+
+
+
+
+
+//*************Lesson 2*************//
+
+//Task 1
+/*
 var a = 1, b = 1, c, d;
 c = ++a; alert(c);           // 2 - потому что мы повышаем а на 1 класс, на единицу.
 d = b++; alert(d);           // 1  - потому что мы сначала выводим b, а уже потом добавляем ему единицу.
@@ -163,6 +261,7 @@ function mathOperation(x, y, operation) {
 //С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val — заданное число, pow –— степень.
 
 
+
 function mathPow(x, y) {
 
     if (y != 1) {
@@ -179,3 +278,6 @@ var base = parseFloat(prompt("Введите число, которое возв
 var exponent = parseFloat(prompt("Введите степень, в которую возмводим"));
 
 alert("Результат возведения в степень: " + mathPow(base, exponent));
+
+*/
+
