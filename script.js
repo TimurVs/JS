@@ -1,5 +1,153 @@
 
-//*************Lesson 3*************//
+//LESSON 4
+
+
+//Task 1
+
+//не получилось сделать так, чтобы при неправильном вводе он
+//правильно считал последующие попытки. Где тут ошибка? он просто со второй попытки пишет undefined
+
+var x = parseInt(prompt("Введите число от 0 до 999"));
+console.log(makeObj(x));
+
+function makeObj(a) {
+    if (isNaN(a) || 0 > a || a > 999) {
+        a = parseInt(prompt('Введите верный интервал!'))
+    }
+
+    else {
+        var obj = {};
+
+        obj.units = a % 10;
+        a = parseInt(a / 10);
+
+        obj.dozens = a % 10;
+        a = parseInt(a / 10);
+
+        obj.hundreds = a % 10;
+
+        return obj;
+    }
+}
+
+//Task 2
+
+
+
+
+
+
+
+
+/*
+
+//Lesson 4 _ webinar
+
+
+var randomMas = [];
+var attempts = 0;
+generateNumber();
+guessNumber();
+alert(randomMas.join(''));
+
+
+function generateNumber() {
+
+    //var min = 1
+    //var max = 9
+
+    for (var i = 0; i < 4; i++) {
+
+        var randomMasNumber = Math.round(Math.random() * 9);
+
+        if (i == 0) {
+
+            randomMas[0] = randomMasNumber;
+        }
+
+        else {
+            while (randomMas.indexOf(randomMasNumber) != -1) {
+                var randomMasNumber = Math.round(Math.random() * 9);
+
+            }
+
+            randomMas[i] = randomMasNumber;
+
+        }
+    }
+}
+
+
+function guessNumber() {
+    var userNumber = prompt("Введите 4-хзначное число с уникальными цифрами. -1 - закончить игру", 0);
+    var gameIsRunning = true;
+
+    while (gameIsRunning) {
+
+        if (parseInt(userNumber) == -1) {
+            gameIsRunning = false;
+        }
+
+        else if (parseInt(userNumber) == 0 || isNaN(parseInt(userNumber)) || userNumber.length != 4) {
+            alert("Вы не ввели число или число не четырехзначное");
+            userNumber = prompt("Введите 4-хзначное число с уникальными цифрами. -1 - закончить игру", 0);
+
+        }
+
+        else {
+            var answer = checkNumber(userNumber);
+            if (answer[0]) {
+                alert("Вы Угадали число! Количество попыток: " + attempts);
+                gameIsRunning = false;
+            }
+
+            else {
+                userNumber = prompt("Быки: " + answer[1] + " Коровы: " + answer[2] + " Введите следующее число. -1 закончить игру");
+
+            }
+
+        }
+    }
+}
+
+function checkNumber(userResult) {
+
+    attempts++;
+
+    var answer = [false, 0, 0];
+
+    console.log(userResult);
+    console.log(randomMas);
+
+    var userNumberMas = userResult.split('');
+
+    for (var i = 0; i < userNumberMas.length; i++) {
+
+        if (parseInt(userNumberMas[i]) == randomMas[i]) {
+            answer[1]++;
+
+        }
+
+        else if (randomMas.indexOf(parseInt(userNumberMas) != -1)) {
+
+            answer[2]++
+
+        }
+
+    }
+
+    if (answer[1] == 4) {
+
+        answer[0] = true;
+    }
+
+    return answer;
+
+}
+
+
+
+//Lesson 3
 
 //Task 1
 
@@ -7,17 +155,18 @@
 function checkPrime(n) {
     var i = 2;
 
-    while (i < n) {
+    while (i < n / 2) {
         if (n % i == 0) {
             return false;
         }
+
         i++;
     }
 
     return true;
 }
 
-var x = 2;
+var x = 1;
 
 while (x <= 100) {
     if (checkPrime(x)) {
@@ -30,7 +179,9 @@ while (x <= 100) {
 
 //Task 2 + 3
 
-var cart = [
+
+
+var basket = [
 
     {
         title: "PS1",
@@ -65,42 +216,52 @@ var cart = [
 ]
 
 
+function totalCart() {
 
-for (var item of cart) {
-    document.write("<p>" + "Товар " + item.title + "</p >" + "<p>" + " Стоимость " + "</p>" + item.price + "<p>" + " Количество " + item.count + "</p>");
-    document.write("<p>" + "Общая стоимость наименований: " + item.price * item.count + "</p>");
-
-}
-
-function totalCart(cart) {
-
-    var totalCart = 0;
-    for (var item of cart) {
-        totalCart += (item.price * item.count);
-
+    var total = 0;
+    for (var item of basket) {
+        document.write("<p>" + "Товар " + item.title + "</p >" + "<p>" + " Стоимость " + "</p>" + item.price + "<p>" + " Количество " + item.count + "</p>");
+        document.write("<p>" + "Общая стоимость наименований: " + item.price * item.count + "</p>");
+        total += (item.price * item.count);
 
     }
-    return totalCart;
+    return total;
+
 
 }
 
-document.write("ИТОГО: " + totalCart(cart));
-
-
-//Task 4 
+document.write("ИТОГО: " + totalCart() + "<br>");
 
 
 
 
+//Task 4
+
+
+for (var i = 0; i < 10; document.write("<p>" + i++ + " " + "</p>")) {
+
+}
 
 
 
 
 
-//*************Lesson 2*************//
+//Task 5
+
+var x = "*";
+
+for (var i = 0; i <= 20; i++) {
+    console.log(x);
+    x += "*";
+}
+
+
+
+
+//Lesson 2
 
 //Task 1
-/*
+
 var a = 1, b = 1, c, d;
 c = ++a; alert(c);           // 2 - потому что мы повышаем а на 1 класс, на единицу.
 d = b++; alert(d);           // 1  - потому что мы сначала выводим b, а уже потом добавляем ему единицу.
@@ -255,29 +416,26 @@ function mathOperation(x, y, operation) {
 }
 
 
-//Сравнить null и 0. Объяснить результат.
-//null это ничто, а ноль - это значение. сравнение некорректно.
+    //Сравнить null и 0. Объяснить результат.
+    //null это ничто, а ноль - это значение. сравнение некорректно.
 
-//С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val — заданное число, pow –— степень.
+    //С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val — заданное число, pow –— степень.
 
 
 
-function mathPow(x, y) {
+    function mathPow(x, y) {
 
-    if (y != 1) {
-        return Math.pow(x, y);
+        if (y != 1) {
+            return Math.pow(x, y);
+        }
+
+        else {
+            return (1);
+        }
+
     }
 
-    else {
-        return (1);
-    }
+    var base = parseFloat(prompt("Введите число, которое возвести в степень"));
+    var exponent = parseFloat(prompt("Введите степень, в которую возмводим"));
 
-}
-
-var base = parseFloat(prompt("Введите число, которое возвести в степень"));
-var exponent = parseFloat(prompt("Введите степень, в которую возмводим"));
-
-alert("Результат возведения в степень: " + mathPow(base, exponent));
-
-*/
-
+    alert("Результат возведения в степень: " + mathPow(base, exponent)); } */
