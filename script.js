@@ -6,7 +6,7 @@
 
 //не получилось сделать так, чтобы при неправильном вводе он
 //правильно считал последующие попытки. Где тут ошибка? он просто со второй попытки пишет undefined
-
+/*
 var x = parseInt(prompt("Введите число от 0 до 999"));
 console.log(makeObj(x));
 
@@ -32,14 +32,8 @@ function makeObj(a) {
 
 //Task 2
 
+*/
 
-
-
-
-
-
-
-/*
 
 //Lesson 4 _ webinar
 
@@ -93,7 +87,7 @@ function guessNumber() {
             userNumber = prompt("Введите 4-хзначное число с уникальными цифрами. -1 - закончить игру", 0);
 
         }
-
+        //отсюда - вот ввели 4х зн число
         else {
             var answer = checkNumber(userNumber);
             if (answer[0]) {
@@ -128,7 +122,7 @@ function checkNumber(userResult) {
 
         }
 
-        else if (randomMas.indexOf(parseInt(userNumberMas) != -1)) {
+        else if (randomMas.indexOf(parseInt(userNumberMas[i])) != -1) {
 
             answer[2]++
 
@@ -146,7 +140,7 @@ function checkNumber(userResult) {
 }
 
 
-
+/*
 //Lesson 3
 
 //Task 1
@@ -416,26 +410,26 @@ function mathOperation(x, y, operation) {
 }
 
 
-    //Сравнить null и 0. Объяснить результат.
-    //null это ничто, а ноль - это значение. сравнение некорректно.
+//Сравнить null и 0. Объяснить результат.
+//null это ничто, а ноль - это значение. сравнение некорректно.
 
-    //С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val — заданное число, pow –— степень.
+//С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val — заданное число, pow –— степень.
 
 
 
-    function mathPow(x, y) {
+function mathPow(x, y) {
 
-        if (y != 1) {
-            return Math.pow(x, y);
-        }
-
-        else {
-            return (1);
-        }
-
+    if (y != 1) {
+        return Math.pow(x, y);
     }
 
-    var base = parseFloat(prompt("Введите число, которое возвести в степень"));
-    var exponent = parseFloat(prompt("Введите степень, в которую возмводим"));
+    else {
+        return (1);
+    }
 
-    alert("Результат возведения в степень: " + mathPow(base, exponent)); } */
+}
+
+var base = parseFloat(prompt("Введите число, которое возвести в степень"));
+var exponent = parseFloat(prompt("Введите степень, в которую возмводим"));
+
+alert("Результат возведения в степень: " + mathPow(base, exponent)); */
