@@ -90,8 +90,13 @@ function guessNumber() {
         //отсюда - вот ввели 4х зн число
         else {
             var answer = checkNumber(userNumber);
-            if (answer[0]) {
+            if (answer[0] & attempts > 10) {
                 alert("Вы Угадали число! Количество попыток: " + attempts);
+                gameIsRunning = false;
+            }
+
+            else if (answer[0] & attempts <= 10) {
+                alert("НИХУЯСЕБЕ! DRAKONTOS IS A MONSTER!")
                 gameIsRunning = false;
             }
 
